@@ -12,7 +12,7 @@ param prefix string
 // Configure Azure Blueprint Bicep on the Subscription level.
 targetScope = 'subscription'
 
-var sharedServicesName = 'sharedservices-${stackEnvironment}'
+var sharedServicesName = 'shared-services-${stackEnvironment}'
 var keyVaultViewerName = 'keyvault-viewer-${stackEnvironment}'
 var contributorRoleIdRes = '/providers/Microsoft.Authorization/roleDefinitions/${contributorRoleId}'
 
@@ -20,7 +20,7 @@ var contributorRoleIdRes = '/providers/Microsoft.Authorization/roleDefinitions/$
 var sharedServicesTags = {
   'stack-name': 'platform'
   'stack-environment': stackEnvironment
-  'stack-sub-name': 'sharedservices'
+  'stack-sub-name': 'shared-services'
 }
 
 var keyVaultViewerTags = {

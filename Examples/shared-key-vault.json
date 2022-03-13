@@ -1,0 +1,38 @@
+{
+    "kind": "template",
+    "properties": {
+        "displayName": "Shared keyvault",
+        "description": "Shared keyvault resource used to store any application specific secrets used in configurations",
+        "dependsOn": [],
+        "template": {
+            "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+            "contentVersion": "1.0.0.0",
+            "parameters": {},
+            "resources": [
+                {
+                    "name": "ekdavidleekv",
+                    "type": "Microsoft.KeyVault/vaults",
+                    "apiVersion": "2021-11-01-preview",
+                    "location": "centralus",
+                    "tags": {
+                        "stack-name": "platform",
+                        "stack-owner": "platformteam@contoso.com"
+                    },
+                    "properties": {
+                        "sku": {
+                            "name": "standard",
+                            "family": "A"
+                        },
+                        "enableSoftDelete": false,
+                        "enableRbacAuthorization": true,
+                        "enabledForTemplateDeployment": true,
+                        "enablePurgeProtection": true,
+                        "tenantId": ""
+                    }
+                }
+            ]
+        },
+        "resourceGroup": "app1",
+        "parameters": {}
+    }
+}
