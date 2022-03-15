@@ -14,6 +14,10 @@ param(
    
 $ErrorActionPreference = "Stop"
 
+if (((az extension list | ConvertFrom-Json) | Where-Object { $_.name -eq "blueprint" }).Length -eq 0) {
+    az extension add --upgrade -n blueprint    
+}
+
 $blueprintName = "corp$BUILD_ENV"
 
 $subscriptionId = (az account show --query id --output tsv)
